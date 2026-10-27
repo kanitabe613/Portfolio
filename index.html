@@ -1,1 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#ffffff">
+	<title>Andres Rojas — Portfolio</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="site-header">
+		<button class="site-title" type="button" data-tab="home" aria-label="Andres Rojas, home">Andres Rojas</button>
+		<nav class="site-nav" aria-label="Portfolio sections">
+			<button type="button" data-tab="visdev">visdev</button>
+			<button type="button" data-tab="illustration">illustration</button>
+			<button type="button" data-tab="art74">Art 74</button>
+			<button type="button" data-tab="about">about/contact</button>
+		</nav>
+	</header>
+
+	<main>
+		<section class="gallery-panel" id="home" aria-label="Portfolio gallery">
+			<div class="placeholder-gallery">
+				<div class="placeholder placeholder--full" role="img" aria-label="Artwork placeholder"></div>
+				<div class="placeholder placeholder--inset" role="img" aria-label="Artwork placeholder"></div>
+				<div class="placeholder placeholder--full" role="img" aria-label="Artwork placeholder"></div>
+				<div class="placeholder placeholder--inset" role="img" aria-label="Artwork placeholder"></div>
+				<div class="placeholder placeholder--full" role="img" aria-label="Artwork placeholder"></div>
+				<div class="placeholder placeholder--inset" role="img" aria-label="Artwork placeholder"></div>
+			</div>
+		</section>
+
+		<section class="gallery-panel" id="visdev" aria-label="Visual development gallery" hidden>
+			<div class="placeholder-gallery">
+				<div class="placeholder placeholder--full" role="img" aria-label="Visual development artwork placeholder"></div>
+				<div class="placeholder placeholder--inset" role="img" aria-label="Visual development artwork placeholder"></div>
+				<div class="placeholder placeholder--full" role="img" aria-label="Visual development artwork placeholder"></div>
+				<div class="placeholder placeholder--inset" role="img" aria-label="Visual development artwork placeholder"></div>
+			</div>
+		</section>
+
+		<section class="gallery-panel" id="illustration" aria-label="Illustration gallery" hidden>
+			<div class="placeholder-gallery">
+				<div class="placeholder placeholder--full" role="img" aria-label="Illustration placeholder"></div>
+				<div class="placeholder placeholder--inset" role="img" aria-label="Illustration placeholder"></div>
+				<div class="placeholder placeholder--full" role="img" aria-label="Illustration placeholder"></div>
+				<div class="placeholder placeholder--inset" role="img" aria-label="Illustration placeholder"></div>
+			</div>
+		</section>
+
+		<section class="gallery-panel" id="art74" aria-label="Art 74 gallery" hidden>
+			<div class="art-gallery">
+				<img class="art-image art-image--full" src="ART74/glitchart_1.jpg" alt="Glitch art study">
+				<img class="art-image art-image--inset" src="ART74/glitchart_2.jpg" alt="Glitched character portrait">
+				<img class="art-image art-image--full" src="ART74/glitchart_3.png" alt="Monochrome digital glitch artwork">
+				<img class="art-image art-image--inset" src="ART74/Blender%20render.png" alt="Blender render of a desk and chair">
+				<img class="art-image art-image--full" src="ART74/Logo%20final.png" alt="Studio Clown Car logo design">
+				<img class="art-image art-image--inset" src="ART74/Meme_final.gif" alt="Animated drawing of a character holding a tablet">
+			</div>
+		</section>
+
+		<section class="gallery-panel about-panel" id="about" aria-label="About and contact" hidden>
+			<div class="placeholder placeholder--about" role="img" aria-label="Portrait placeholder"></div>
+			<div class="about-copy">
+				<h1>About / Contact</h1>
+				<p>Andres Rojas</p>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer" aria-label="Social links">
+		<span>Andres Rojas</span>
+	</footer>
+
+	<script>
+		const tabs = document.querySelectorAll("[data-tab]");
+		const panels = document.querySelectorAll(".gallery-panel");
+
+		tabs.forEach((tab) => {
+			tab.addEventListener("click", () => {
+				const selected = tab.dataset.tab;
+				panels.forEach((panel) => {
+					panel.hidden = panel.id !== selected;
+				});
+				tabs.forEach((item) => {
+					if (item !== document.querySelector(".site-title")) {
+						item.setAttribute("aria-current", item === tab ? "page" : "false");
+					}
+				});
+				window.scrollTo({ top: 0, behavior: "smooth" });
+			});
+		});
+	</script>
+</body>
+</html>
+
 

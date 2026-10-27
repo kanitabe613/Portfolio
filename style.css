@@ -1,0 +1,194 @@
+:root {
+  color-scheme: light;
+  --ink: #686868;
+  --placeholder: #b7b7b7;
+  --gutter: clamp(18px, 6vw, 74px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #fff;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-weight: 400;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+.site-header {
+  min-height: 428px;
+  padding: 54px 24px 126px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-title {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #707070;
+  font-size: clamp(58px, 8vw, 96px);
+  font-weight: 600;
+  line-height: 1.15;
+  cursor: pointer;
+}
+
+.site-nav {
+  width: min(850px, 100%);
+  margin-top: 78px;
+  margin-right: clamp(0px, 4vw, 50px);
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-nav button {
+  border: 0;
+  padding: 5px 0;
+  background: transparent;
+  color: #686868;
+  font-size: 19px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.site-nav button:hover,
+.site-nav button[aria-current="page"] {
+  color: #222;
+}
+
+.site-nav button:focus-visible,
+.site-title:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 7px;
+}
+
+.gallery-panel[hidden] {
+  display: none;
+}
+
+.placeholder-gallery,
+.art-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.placeholder {
+  aspect-ratio: 1 / 1;
+  background: var(--placeholder);
+}
+
+.placeholder--full {
+  width: 100%;
+}
+
+.placeholder--inset {
+  width: 86%;
+  margin-inline: auto;
+}
+
+.art-image {
+  display: block;
+  height: auto;
+}
+
+.art-image--full {
+  width: 100%;
+}
+
+.art-image--inset {
+  width: 86%;
+  margin-inline: auto;
+}
+
+.about-panel {
+  width: min(980px, 86%);
+  min-height: 460px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr);
+  align-items: center;
+  gap: clamp(28px, 7vw, 90px);
+}
+
+.placeholder--about {
+  width: 100%;
+}
+
+.about-copy h1 {
+  margin: 0 0 16px;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.about-copy p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.site-footer {
+  padding: 56px 24px 36px;
+  color: #898989;
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    min-height: 270px;
+    padding: 36px 20px 70px;
+  }
+
+  .site-nav {
+    margin-top: 50px;
+    margin-right: 0;
+    align-self: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 22px;
+    row-gap: 9px;
+  }
+
+  .site-nav button {
+    font-size: 14px;
+    letter-spacing: 1.4px;
+  }
+
+  .placeholder-gallery,
+  .art-gallery {
+    gap: 12px;
+  }
+
+  .placeholder--inset,
+  .art-image--inset {
+    width: 88%;
+  }
+
+  .about-panel {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-copy {
+    padding-bottom: 20px;
+  }
+}
